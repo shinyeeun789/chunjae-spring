@@ -19,6 +19,6 @@ public class SampleController2 {
     public String sampleList(Model model) throws Exception {
         List<Sample> sampleList = sampleService.sampleList();
         model.addAttribute("sampleList", sampleList);
-        return "/sample/sampleList";
+        return "/sample2/sampleList";
     }
 }

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="<%=request.getContextPath() %>" />
+<c:set var="path1" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +28,8 @@
         <li><a href="${path1}/sample/get5.do?id=shin&pw=1234">RequestMapping.GET 방식 : ModelAttribute+model</a></li>
         <li><a href="${path1}/sample/get6.do/shin/1234">RequestMapping.GET 방식 : PathVariable+model</a></li>
         <li><a href="${path1}/sample/get7.do?id=shin&pw=1234">RequestMapping.GET 방식 : RequestParam+ModelAndView</a></li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
+        <li><a href="${path1}/sample/list.do"> sampleList </a></li>
+        <li><a href="${path1}/board/list.do"> boardList </a></li>
     </ul>
 </body>
 </html>
