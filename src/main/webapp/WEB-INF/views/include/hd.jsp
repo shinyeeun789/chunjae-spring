@@ -6,7 +6,7 @@
 <header id="hd" class="container is-fullhd">
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="${path1}">
                 <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
             </a>
 
@@ -19,7 +19,7 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="${path1}">
                     Home
                 </a>
 
@@ -53,12 +53,30 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                            Log in
-                        </a>
+                        <c:if test="${!empty sid}">
+                            <a href="${path1}/member/mypage.do" class="button is-primary">
+                                <strong>MyPage</strong>
+                            </a>
+                            <a href="${path1}/member/logout.do" class="button is-light">
+                                Logout
+                            </a>
+                        </c:if>
+                        <c:if test="${empty sid}">
+                            <a href="${path1}/member/term.do" class="button is-primary">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a href="${path1}/member/login.do" class="button is-light">
+                                Log in
+                            </a>
+                        </c:if>
+                        <c:if test="${sid eq 'admin'}">
+                            <a href="${path1}/member/list.do" class="button is-primary">
+                                <strong>회원 목록</strong>
+                            </a>
+                            <a href="${path1}/member/logout.do" class="button is-light">
+                                Logout
+                            </a>
+                        </c:if>
                     </div>
                 </div>
             </div>
