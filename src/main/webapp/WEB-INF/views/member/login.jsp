@@ -26,18 +26,18 @@
         </div>
     </section>
     <div class="contents">
-        <form action="${path1}/loginPro.do" class="box">
+        <form action="${path1}/member/loginpro.do" method="post" class="box">
             <div class="field">
-                <label class="label">ID</label>
+                <label class="label" for="id">ID</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="아이디를 입력해주세요">
+                    <input class="input" id="id" name="id" type="text" placeholder="아이디를 입력해주세요">
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Password</label>
+                <label class="label" for="pw">Password</label>
                 <div class="control">
-                    <input class="input" type="password" placeholder="비밀번호를 입력해주세요">
+                    <input class="input" id="pw" name="pw" type="password" placeholder="비밀번호를 입력해주세요">
                 </div>
             </div>
 

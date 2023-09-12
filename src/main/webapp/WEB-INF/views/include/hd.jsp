@@ -53,7 +53,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <c:if test="${!empty sid}">
+                        <c:if test="${!empty sid and sid ne 'admin'}">
                             <a href="${path1}/member/mypage.do" class="button is-primary">
                                 <strong>MyPage</strong>
                             </a>
@@ -62,7 +62,7 @@
                             </a>
                         </c:if>
                         <c:if test="${empty sid}">
-                            <a href="${path1}/member/term.do" class="button is-primary">
+                            <a href="${path1}/member/join.do" class="button is-primary">
                                 <strong>Sign up</strong>
                             </a>
                             <a href="${path1}/member/login.do" class="button is-light">

@@ -3,6 +3,7 @@ package kr.co.teaspoon.service;
 import kr.co.teaspoon.dao.MemberDAO;
 import kr.co.teaspoon.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,8 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     private MemberDAO memberDAO;
+
+    BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
 
     @Override
     public List<Member> memberList() throws Exception {
@@ -54,7 +57,8 @@ public class MemberServiceImpl implements MemberService {
     public boolean loginCheck(String id, String pw) throws Exception {
         boolean comp = false;
         Member member = memberDAO.loginCheck(id);
-        if(pw.equals(member.getPw())) {
+        boolean loginSuccess = pwdEncoder.matches(pw, member.getPw());
+        if(member != null && loginSuccess) {
             comp = true;
         }
         return comp;
