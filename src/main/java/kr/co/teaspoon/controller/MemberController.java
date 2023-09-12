@@ -59,6 +59,18 @@ public class MemberController {
         return "/member/memberEdit";
     }
 
+    // 회원정보 변경
+    @RequestMapping(value="update.do", method=RequestMethod.POST)
+    public String memberUpdate(Member mem, Model model) throws Exception {
+        String pwd = "";
+        if(mem.getPw().length() <= 16) {
+            pwd = pwdEncoder.encode(mem.getPw());
+            mem.setPw(pwd);
+        }
+        memberService.memberEdit(mem);
+        return "redirect:member/edit.do";
+    }
+
     @RequestMapping(value="mypage.do", method=RequestMethod.GET)
     public String myPage(Model model) throws Exception {
         String id = (String) session.getAttribute("sid");
