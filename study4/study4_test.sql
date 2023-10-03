@@ -22,3 +22,16 @@ CREATE TABLE emp(
 );
 
 INSERT INTO emp VALUES(DEFAULT, 'shin');
+
+SELECT * FROM emp;
+
+
+-- 트랜잭션 수준 실습
+SHOW VARIABLES LIKE 'autocommit%';			-- autocommit 설정 값 확인
+
+SET AUTOCOMMIT = TRUE;        				-- autocommit 설정
+SET AUTOCOMMIT = FALSE;       				-- autocommit 해제
+
+SHOW VARIABLES LIKE 'tx_isolation';			-- 트랜잭션의 격리 수준 확인
+
+SET tx_isolation = 'READ-UNCOMMITTED';		-- 트랜잭션 격리 수준 변경
