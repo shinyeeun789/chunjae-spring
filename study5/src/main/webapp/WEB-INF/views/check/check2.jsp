@@ -11,6 +11,8 @@
 </head>
 <body>
     <div class="container">
+        <h2> javascript를 이용한 유효성 검증 </h2>
+        <hr>
         <form action="./check2" method="post" onsubmit="return loginCheck(this)">
             <!-- 영문 소문자와 숫자 조합 글자 길이 5~12 글자 사이의 유효성 패턴 -->
             id : <input type="text" name="id" id="id" /><br><br>

@@ -1,0 +1,18 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator</title>
+</head>
+<body>
+<h2> Validator를 이용한 유효성 검증 </h2>
+<hr>
+<form action="./check4" method="post">
+    id : <input type="text" name="id" id="id" /><br><br>
+    pw : <input type="password" name="pw" id="pw" /><br><br>
+    <button type="submit">확인</button>
+</form>
+</body>
+</html>

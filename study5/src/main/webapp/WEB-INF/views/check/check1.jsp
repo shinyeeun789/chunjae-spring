@@ -11,6 +11,8 @@
 </head>
 <body>
     <div class="container">
+        <h2> form 태그의 pattern, maxlength, required를 이용한 폼 유효성 검증 </h2>
+        <hr>
         <form action="./check1" method="post">
             <!-- 영문 소문자와 숫자 조합 글자 길이 5~12 글자 사이의 유효성 패턴 -->
             id : <input type="text" name="id" id="id" pattern="^[a-z0-9]{5,12}" maxlength="12" required /><br><br>
