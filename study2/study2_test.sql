@@ -13,10 +13,10 @@ INSERT INTO test VALUES (DEFAULT, '테스트제목5');
 
 SELECT * from test;
 
+DESC test;
+
 COMMIT;
 
 SELECT * FROM emp;
-
-DESC test;
 
 DESC emp;

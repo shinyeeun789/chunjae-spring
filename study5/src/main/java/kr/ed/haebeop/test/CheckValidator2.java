@@ -17,7 +17,9 @@ public class CheckValidator2 implements Validator {
         System.out.println("validate action");
         CheckVO check = (CheckVO)obj;
 
+        // 아이디 패턴 - 영문 소문자와 숫자 조합 글자 길이 5~12 글자 사이의 유효성 패턴
         Pattern pat1 = Pattern.compile("^[a-z0-9]$", Pattern.CASE_INSENSITIVE);
+        // 비밀번호 패턴 - 영문 소문자 대문자, 숫자 조합 글자 길이 8~12 글자 사이의 유효성 패턴
         Pattern pat2 = Pattern.compile("^[a-zA-Z0-9]$", Pattern.CASE_INSENSITIVE);
 
         if(!(pat1.matcher(check.getId()).matches())){
