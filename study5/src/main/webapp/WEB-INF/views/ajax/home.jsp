@@ -13,8 +13,8 @@
         <ul>
             <li><a href="${path1}/ajax/test1"> 01_Get 전송 </a></li>
             <li><a href="${path1}/ajax/test2"> 02_Post 전송 </a></li>
-            <li><a href="${path1}/ajax/test3"> 03_Get + Parameter </a></li>
-            <li><a href="${path1}/ajax/test4"> 04_Post + Parameter </a></li>
+            <li><a href="${path1}/ajax/test1"> 03_Get + Parameter </a></li>
+            <li><a href="${path1}/ajax/test2"> 04_Post + Parameter </a></li>
             <li><a href="${path1}/ajax/test5"> 05_Get + @ModelAttribute + Object 전송 </a></li>
             <li><a href="${path1}/ajax/test6"> 06_Post + @ModelAttribute + Object 전송 </a></li>
             <li><a href="${path1}/ajax/test7"> 07_Post + @RequestBody + Object 전송 </a></li>
