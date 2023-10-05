@@ -12,13 +12,13 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         boolean flag = false;
         HttpSession session = request.getSession(false);            // 자동 로그인 되지 않도록 false로 막아주기
-        if (session.getAttribute("user") != null && session != null) {
+        if (session != null && session.getAttribute("user") != null) {
             flag = true;
             System.out.println("** 인터셉터 통과 : 요청 주소 **" + request.getRequestURI());
         } else {
             flag = false;
             System.out.println("** 인터셉터 실패 : 접근 실패 **");
-            response.sendRedirect("/user/loginForm");
+            response.sendRedirect(request.getContextPath() + "/");
         }
 
         return flag;

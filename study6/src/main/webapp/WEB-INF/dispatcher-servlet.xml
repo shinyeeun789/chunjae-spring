@@ -49,7 +49,9 @@
     </beans:bean>
 
     <!-- 기본 메인 패키지 및 컨트롤러 패키지 설정 -->
-    <context:component-scan base-package="kr.ed.haebeop.controller" />
+    <!--    <context:component-scan base-package="kr.ed.haebeop.controller" />-->
+    <!--    ApplicationConfig.java를 인식시키려면 haebeop 상위 디렉토리로 지정해야 함-->
+    <context:component-scan base-package="kr.ed.haebeop" />
     <annotation-driven />
 
 
@@ -58,7 +60,7 @@
     <beans:bean id="adminIntercepter" class="kr.ed.haebeop.util.AdminInterceptor" />
     <interceptors>
         <interceptor>
-            <mapping path="/user/**"/>
+            <mapping path="/free/**"/>
             <beans:ref bean="userIntercepter" />
         </interceptor>
         <interceptor>
@@ -66,7 +68,7 @@
             <beans:ref bean="adminIntercepter" />
         </interceptor>
     </interceptors>
-    <!-- free 디렉토리의 view(.jsp)를 접근하려면 SampleInterceptor 클래스에
+    <!-- free 디렉토리의 view(.jsp)를 접근하려면 UserInterceptor 클래스에
     제시한 조건이 맞으면 접근 가능하게 할 수 있도록 함 -->
     <!-- admin 디렉토리의 view(.jsp)를 접근하려면 AdminInterceptor 클래스에
     제시한 조건이 맞으면 접근 가능하게 할 수 있도록 함 -->

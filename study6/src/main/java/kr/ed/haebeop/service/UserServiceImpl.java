@@ -4,14 +4,20 @@ import kr.ed.haebeop.domain.User;
 import kr.ed.haebeop.persistence.UserPersistence;
 import kr.ed.haebeop.persistence.UserPersistenceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserPersistence userPersistence;
+
+    @Inject
+    BCryptPasswordEncoder pwdEncoder;
 
     @Override
     public List<User> userList() throws Exception {
@@ -40,14 +46,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(HttpServletRequest request) throws Exception {
-        boolean result = false;
-        User user = new User();
-        user.setId(request.getParameter("id"));
-        user.setPw(request.getParameter("pw"));
-        if(userPersistence.login(user) != null) {
-            result = true;
+        HttpSession session = request.getSession();
+        boolean loginSuccess = false;
+        User mdto = new User();
+
+        mdto.setId(request.getParameter("id"));
+        mdto.setPw(request.getParameter("pw"));
+
+        User login = userPersistence.login(mdto);
+
+        loginSuccess = pwdEncoder.matches(mdto.getPw(), login.getPw());
+        if(login != null && loginSuccess) {
+            session.setAttribute("user", login);
+            session.setAttribute("sid", login.getId());
         }
-        return result;
+        return loginSuccess;
     }
 
     @Override
