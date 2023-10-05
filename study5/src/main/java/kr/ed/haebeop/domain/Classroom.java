@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
-    private int stdNumber;
-    private String name;
-    private int age;
+public class Classroom {
+    private String part;
+    private Integer classNum;
+    private ArrayList<Student> students;
 }
