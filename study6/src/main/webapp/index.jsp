@@ -43,6 +43,7 @@
         <hr>
         <a href="${path1}/fileupload/fileUpload2"> 파일 업로드2 </a>
         <a href="${path1}/fileupload/fileUpload3"> 파일 업로드3 </a>
+        <a href="${path1}/fileupload/fileUpload4"> 파일 업로드4 </a>
     </div>
 </div>
 
